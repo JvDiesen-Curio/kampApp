@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,27 @@ class students extends Model
     public function mentor()
     {
         return $this->hasOneThrough(mentors::class, groups::class);
+    }
+
+    public function presence_logs()
+    {
+        return $this->hasMany(presence_log::class, "student_id");
+    }
+
+
+
+    public function getLatestStatus($recanMinutes = 120)
+    {
+        $status = $this->presence_logs()->latest()->first();
+        if ($status && $status->created_at < now()->subMinutes($recanMinutes) && $status->status_id != 3) {
+            $status->status_id = 5;
+        }
+        return  $status;
+    }
+
+
+    public function fullname()
+    {
+        return $this->first_name . " " . $this->last_name;
     }
 }

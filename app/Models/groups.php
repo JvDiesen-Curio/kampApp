@@ -18,6 +18,6 @@ class groups extends Model
 
     public function students()
     {
-        return $this->hasManyThrough(students::class, mentors::class);
+        return $this->hasMany(students::class, 'group_id');
     }
 }
