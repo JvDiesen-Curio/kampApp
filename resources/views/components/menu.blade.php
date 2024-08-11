@@ -113,7 +113,7 @@
                 </div>
             </div>
             <div class="group/menuItem relative ml-4 mb-2 ">
-                <a h href="{{ route('importForm') }}">
+                <a h href="{{ route('importAndExport') }}">
                     <div
                         class="group/link flex justify-between items-center text-white p-1 mr-4 group-hover/menuItem:bg-white group-hover/menuItem:text-gray-800 cursor-pointer
                 rounded-xl duration-300 ease-in-out ">
@@ -132,7 +132,7 @@
 
                 <div
                     class="group-hover/menuItem:visible group-hover/menuItem:opacity-100 z-50 invisible opacity-0 text-white  absolute -top-1 -right-2.5 translate-x-full rounded-md p-2 duration-300 ease-in-out truncate bg-gray-800">
-                    Import Students Excel
+                    Import And Export
                 </div>
             </div>
         </nav>

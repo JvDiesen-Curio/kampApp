@@ -1,3 +1,15 @@
-<x-layout title="KampApp">
-    <x-qr-code-scanner></x-qrcode-scanner>
-</x-layout>
+<div class="bg-curio-geel"></div>
+<div class="bg-curio-rood"></div>
+<div class="bg-curio-bruin"></div>
+<div class="bg-curio-licht-roze"></div>
+<div class="bg-curio-midden-roze"></div>
+<div class="bg-curio-donker-roze"></div>
+<div class="bg-curio-licht-paars"></div>
+<div class="bg-curio-donker-paars"></div>
+<div class="bg-curio-midden-paars"></div>
+<div class="bg-curio-licht-blauw"></div>
+<div class="bg-curio-midden-blauw"></div>
+<div class="bg-curio-donker-blauw"></div>
+<div class="bg-curio-licht-groen"></div>
+<div class="bg-curio-midden-groen"></div>
+<div class="bg-curio-donker-groen"></div>

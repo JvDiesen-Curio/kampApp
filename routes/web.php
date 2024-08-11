@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\GroupsController;
-use App\Http\Controllers\ImportController;
+use App\Http\Controllers\ImportAndExportController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PresenceLogController;
 use App\Http\Controllers\QrCodeScanner;
 use App\Http\Controllers\StatusController;
@@ -45,9 +46,16 @@ Route::middleware(['auth', 'isTeacher', 'web'])->group(function () {
 
     Route::get('qrCodeScanner', [QrCodeScanner::class, 'qrCodeScanner'])->name('qrCodeScanner');
     Route::get('qrCodeScanner/{student}', [QrCodeScanner::class, 'qrCodeScannerInchecken'])->name('qrCodeScannerInchecken');
+    Route::prefix('import')->group(function () {
+        Route::get('', [ImportAndExportController::class, 'importAndExport'])->name('importAndExport');
+        Route::post('', [ImportAndExportController::class, 'import'])->name('import');
+    });
 
-    Route::get('import', [ImportController::class, 'importForm'])->name('importForm');
-    Route::post('import', [ImportController::class, 'import'])->name('import');
+    Route::prefix('export')->group(function () {
+        Route::get('backupRegistratie', [PdfController::class, 'backupRegistratie'])->name('backupRegistratie');
+        Route::get('backupStudentsInfo', [PdfController::class, 'backupStudentsInfo'])->name('backupStudentsInfo');
+        Route::get('straps', [ImportAndExportController::class, 'exportStraps'])->name('straps');
+    });
 });
 
 

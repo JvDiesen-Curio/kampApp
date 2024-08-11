@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\groups;
 use App\Models\mentors;
 use App\Models\presence_log_statuses;
+use App\Models\Strap_themas;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -61,11 +62,48 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+
+        Strap_themas::create([
+            'id' => 1,
+            'name' => 'Blauw',
+        ]);
+
+        Strap_themas::create([
+            'id' => 2,
+            'name' => 'Bruin',
+        ]);
+
+        Strap_themas::create([
+            'id' => 3,
+            'name' => 'Geel',
+        ]);
+
+        Strap_themas::create([
+            'id' => 4,
+            'name' => 'Groen',
+        ]);
+
+        Strap_themas::create([
+            'id' => 5,
+            'name' => 'Paars',
+        ]);
+
+        Strap_themas::create([
+            'id' => 6,
+            'name' => 'Rood',
+        ]);
+
+        Strap_themas::create([
+            'id' => 7,
+            'name' => 'Roze',
+        ]);
+
         groups::create(
             [
                 'id' => 1,
-                'name' => 'Geen groep',
+                'code' => 'Geen groep',
                 'mentor_id' => 1,
+                'thema_id' => 1,
             ]
         );
 

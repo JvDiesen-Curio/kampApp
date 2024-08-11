@@ -1,10 +1,10 @@
-@props(['returnurl' => null, 'status' => true, 'statusid' => 1])
+@props(['returnurl' => null, 'status' => true, 'statusid' => 1, 'onlyScanner' => false])
 
 <x-layout>
     <section
-        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1 h-[12%] flex items-center  ">
+        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1 h-[12%] flex items-center   {{ !$onlyScanner ? 'block' : 'hidden' }} ">
         <form id="form" class="w-full h-full flex items-center justify-center">
-            @if ($status)
+            @if ($status && !$onlyScanner)
                 <div class="grid grid-cols-3 w-full">
                     <div class="flex flex-col items-center">
                         <input id="status-1" class="peer/status-1 hidden checkbox " type="radio" name="statusid"
@@ -53,7 +53,7 @@
 
     </section>
     <section
-        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1 h-[85%]  flex justify-center items-center overflow-hidden">
+        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1   flex justify-center items-center overflow-hidden  {{ !$onlyScanner ? 'h-[85%]' : 'h-[97%]' }}">
         @vite(['resources/js/qr-code-scanner.js'])
         <div class="wrap">
             <video style="max-width: none" id="qr-video"></video>

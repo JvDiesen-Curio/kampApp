@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('wednesday_evening')->nullable();
             $table->string('stay_overnight')->nullable();
             $table->string('thursday_morning')->nullable();
-            $table->string('dietary_requirements')->nullable();
-            $table->string('note')->nullable();
+            $table->text('dietary_requirements')->nullable();
+            $table->text('note')->nullable();
             $table->text('medicines')->nullable();
             $table->text('allergies')->nullable();
             $table->timestamps();

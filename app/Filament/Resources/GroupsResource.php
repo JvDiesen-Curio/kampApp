@@ -6,6 +6,7 @@ use App\Filament\Resources\GroupsResource\Pages;
 use App\Filament\Resources\GroupsResource\RelationManagers;
 use App\Models\Groups;
 use App\Models\mentors;
+use App\Models\Strap_themas;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -31,6 +32,10 @@ class GroupsResource extends Resource
                     ->required()
                     ->options(mentors::all()->pluck('name', 'id'))
                     ->label('Mentor'),
+                Forms\Components\Select::make('thema_id')
+                    ->required()
+                    ->options(Strap_themas::all()->pluck('name', 'id'))
+                    ->label('Thema'),
             ]);
     }
 
@@ -42,6 +47,9 @@ class GroupsResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('mentor.name')
                     ->label('Mentor')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('thame.name')
+                    ->label('Thame')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

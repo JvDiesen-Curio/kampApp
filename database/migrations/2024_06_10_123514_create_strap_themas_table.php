@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('groups', function (Blueprint $table) {
+        Schema::create('strap_themas', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
-            $table->foreignId('mentor_id');
-            $table->foreign('mentor_id')->references('id')->on('mentors');
-            $table->foreignId('thema_id');
-            $table->foreign('thema_id')->references('id')->on('strap_themas');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('mentors');
     }
 };

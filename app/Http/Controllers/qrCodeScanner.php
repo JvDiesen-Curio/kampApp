@@ -13,8 +13,9 @@ class QrCodeScanner extends Controller
     {
 
         return view('qrCodeScanner.qrcode-scanner', [
+            'onlyScanner' =>  request()->input('onlyScanner') ? true : false,
             'statusid' => request()->input('statusid') ? request()->input('statusid') : 1,
-            "calbackurl" => route("presenceLog-qrCodeScannerStore"),
+            "calbackurl" => request()->input('calbackurl') ? request()->input('calbackurl') : route("presenceLog-qrCodeScannerStore"),
             "returnurl" => request()->input('returnurl') ? request()->input('returnurl') : null
         ]);
     }
@@ -23,6 +24,7 @@ class QrCodeScanner extends Controller
     public function qrCodeScannerInchecken(students $student)
     {
         return view('qrCodeScanner.qrcode-scanner', [
+            'onlyScanner' =>  request()->input('onlyScanner') ? true : false,
             "status" => false,
             "calbackurl" => " /students/" . $student->id . " /qrCodeInchecken",
             "returnurl" => request()->input('returnurl') ? request()->input('returnurl') : null

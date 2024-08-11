@@ -20,4 +20,9 @@ class groups extends Model
     {
         return $this->hasMany(students::class, 'group_id');
     }
+
+    public function thame()
+    {
+        return $this->belongsTo(Strap_themas::class, 'thema_id');
+    }
 }

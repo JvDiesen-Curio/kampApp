@@ -19,7 +19,7 @@ class studentsImport implements ToModel, WithStartRow
     public function model(array $row)
     {
         if ($row[0] == null) return null;
-        $group_id = 1;;
+        $group_id = 1;
 
         $parts = explode(" ", $row[8]);
 

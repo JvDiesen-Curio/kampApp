@@ -22,6 +22,10 @@ class StudentsController extends Controller
                 $query->where('group_id', '=',  $request->input('groupid'));
             }
 
+            if ($request->input('qrCode')) {
+                $query->where('qr_code', '=',  $request->input('qrCode'));
+            }
+
             if ($request->input('statusid') && $request->input('statusid') == 'inchecken') {
                 $query->where('qr_code', '=',  null);
             }

@@ -82,9 +82,14 @@
 
             </form>
         @else
-            <form action="" method="get" class="w-full h-full">
+            <form action="" method="get" class="w-full h-full flex items-center">
                 <input type="text" name="search" id="search" placeholder="Search" value="{{ request('search') }}"
                     class="w-full h-full p-2">
+                <a href="{{ route('qrCodeScanner') . '?onlyScanner=true&calbackurl=' . URL::full() }}">
+                    <div class="text-gray-800 w-10 h-10 ">
+                        <x-icons.qrcode />
+                    </div>
+                </a>
             </form>
         @endif
 
@@ -116,7 +121,7 @@
                                 @else
                                     @if (!$student->qr_code)
                                         <a
-                                            href="{{ route('qrCodeScannerInchecken', $student) . '?returnurl=' . URL::full() }}">
+                                            href="{{ route('qrCodeScannerInchecken', $student) . '?onlyScanner=true&returnurl=' . URL::full() }}">
                                             <div class="text-gray-500">
                                                 <x-icons.qrcode />
                                             </div>
