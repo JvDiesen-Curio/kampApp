@@ -17,7 +17,7 @@
     <div class="h-screen w-screen bg-slate-200 flex flex-row">
         @if (session('message'))
             <div id="message"
-                class="absolute z-50 right-0 w-1/4 h-10 rounded-l-lg flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3  duration-300 ease-in-out"
+                class="absolute z-50 right-0  md:w-1/4  w-full h-10 rounded-l-lg flex items-center bg-blue-500 text-white text-sm font-bold px-4 py-3  duration-300 ease-in-out"
                 role="alert">
                 <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     <path
@@ -29,7 +29,7 @@
 
         @if ($errors->any())
             <div id="message"
-                class="absolute z-50 right-0 w-1/4  rounded-l-lg flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3  duration-300 ease-in-out">
+                class="absolute z-50 right-0 md:w-1/4  w-full rounded-l-lg flex items-center bg-red-500 text-white text-sm font-bold px-4 py-3  duration-300 ease-in-out">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                         <path fill-rule="evenodd"

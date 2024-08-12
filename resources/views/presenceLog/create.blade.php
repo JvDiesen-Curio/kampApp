@@ -36,7 +36,7 @@
                         class="h-20 w-20 peer-checked/status-3:border-4 border-gray-800  p-1 rounded-full">
                         <x-icons.hasGoHome />
                     </label>
-                    <label for="status-3" class="font-bold uppercase text-gray-500">is naar huis</label>
+                    <label for="status-3" class="font-bold uppercase text-gray-500">naar huis</label>
                 </div>
                 <div class="flex flex-col items-center">
                     <input id="status-4" class="peer/status-4 hidden" type="radio" name="status_id" value="4" />
@@ -44,10 +44,14 @@
                         class="h-20 w-20 peer-checked/status-4:border-4 border-gray-800 rounded-full p-1">
                         <x-icons.beRightBack />
                     </label>
-                    <textarea class="border-4 border-gray-800  w-full mt-2" name="note" id="" cols="30" rows="10"
-                        placeholder="Note"></textarea>
-                    <input type="hidden" name="student_id" value="{{ $student->id }}">
-                    <input type="submit" value="Save" class="bg-gray-800 text-white p-2 rounded-lg w-full  mt-2" />
+                    <label for="status-4" class="font-bold uppercase text-gray-500">Even weg</label>
+                </div>
+
+            </div>
+            <textarea class="border-4 border-gray-800  w-full mt-2" name="note" id="" cols="30" rows="10"
+                placeholder="Note"></textarea>
+            <input type="hidden" name="student_id" value="{{ $student->id }}">
+            <input type="submit" value="Save" class="bg-gray-800 text-white p-2 rounded-lg w-full  mt-2" />
         </form>
     </section>
 </x-layout>
