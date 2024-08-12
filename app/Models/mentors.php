@@ -12,11 +12,11 @@ class Mentors extends Model
 
     public function groups()
     {
-        return $this->hasMany(groups::class, 'mentor_id');
+        return $this->hasMany(Groups::class, 'mentor_id');
     }
 
     public function students()
     {
-        return $this->hasManyThrough(students::class, groups::class, "mentor_id", 'group_id');
+        return $this->hasManyThrough(Students::class, groups::class, "mentor_id", 'group_id');
     }
 }

@@ -12,7 +12,7 @@ class StudentsController extends Controller
 
     public function index(Request $request)
     {
-        $students =   students::where(function ($query) use ($request) {
+        $students =   Students::where(function ($query) use ($request) {
             if ($request->input('search')) {
                 $query->where('first_name', 'like', '%' . $request->input('search') . '%')
                     ->orWhere('last_name', 'like', '%' . $request->input('search') . '%');
@@ -54,7 +54,7 @@ class StudentsController extends Controller
 
         $search = request()->input('search');
 
-        $mentor = mentors::where('code', auth()->user()->id)->first();
+        $mentor = Mentors::where('code', auth()->user()->id)->first();
         if ($mentor) {
 
             if ($search) {
@@ -68,13 +68,13 @@ class StudentsController extends Controller
         return view('students.index', ["students" => $students]);
     }
 
-    public function show(students $student)
+    public function show(Students $student)
     {
 
         return view('students.show', ["student" => $student]);
     }
 
-    public function qrCodeInchecken(students $student)
+    public function qrCodeInchecken(Students $student)
     {
         $data = request()->validate([
             'qrCode' => 'required | unique:students,qr_code',
@@ -87,7 +87,7 @@ class StudentsController extends Controller
         $student->qr_code = $data['qrCode'];
         $student->save();
 
-        presence_log::create([
+        Presence_log::create([
             'student_id' => $student->id,
             'status_id' => 1
         ]);

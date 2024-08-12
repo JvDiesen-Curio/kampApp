@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class groups extends Model
+class Groups extends Model
 {
     use HasFactory;
 
@@ -18,7 +18,7 @@ class groups extends Model
 
     public function students()
     {
-        return $this->hasMany(students::class, 'group_id');
+        return $this->hasMany(Students::class, 'group_id');
     }
 
     public function thame()

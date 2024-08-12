@@ -11,6 +11,6 @@ class Strap_themas extends Model
 
     public function groups()
     {
-        return $this->hasMany(groups::class, 'thema_id');
+        return $this->hasMany(Groups::class, 'thema_id');
     }
 }

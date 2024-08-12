@@ -21,7 +21,7 @@ class QrCodeScanner extends Controller
     }
 
 
-    public function qrCodeScannerInchecken(students $student)
+    public function qrCodeScannerInchecken(Students $student)
     {
         return view('qrCodeScanner.qrcode-scanner', [
             'onlyScanner' =>  request()->input('onlyScanner') ? true : false,

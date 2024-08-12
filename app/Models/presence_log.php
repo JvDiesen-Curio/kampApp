@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class presence_log extends Model
+class Presence_log extends Model
 {
     use HasFactory;
 
@@ -17,11 +17,11 @@ class presence_log extends Model
 
     public function students()
     {
-        return $this->belongsTo(students::class);
+        return $this->belongsTo(Students::class);
     }
 
     public function statuses()
     {
-        return $this->belongsTo(presence_log_statuses::class);
+        return $this->belongsTo(Presence_log_statuses::class);
     }
 }

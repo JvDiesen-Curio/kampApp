@@ -6,14 +6,14 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class students extends Model
+class Students extends Model
 {
     use HasFactory;
 
 
     public function group()
     {
-        return $this->belongsTo(groups::class);
+        return $this->belongsTo(Groups::class);
     }
 
     public function mentor()
@@ -23,7 +23,7 @@ class students extends Model
 
     public function presence_logs()
     {
-        return $this->hasMany(presence_log::class, "student_id");
+        return $this->hasMany(Presence_log::class, "student_id");
     }
 
 

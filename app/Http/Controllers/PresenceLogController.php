@@ -8,11 +8,11 @@ use App\Models\Students;
 
 class PresenceLogController extends Controller
 {
-    public function create(students $student)
+    public function create(Students $student)
     {
         return view('presenceLog.create', ["student" => $student]);
     }
-    public  function store(students $student)
+    public  function store(Students $student)
     {
         $data = request()->validate([
             'status_id' => 'required| exists:presence_log_statuses,id',
@@ -22,7 +22,7 @@ class PresenceLogController extends Controller
 
 
 
-        presence_log::create([
+        Presence_log::create([
             'student_id' => $data['student_id'],
             'status_id' => $data['status_id'],
             'note' => $data['note'],
@@ -32,7 +32,7 @@ class PresenceLogController extends Controller
         return redirect()->route('students.show', $student->id);
     }
 
-    function show(presence_log $presence_log)
+    function show(Presence_log $presence_log)
     {
         return view('presenceLog.show', ["presence_log" => $presence_log]);
     }
@@ -58,9 +58,9 @@ class PresenceLogController extends Controller
         );
 
 
-        $student = students::where('qr_code', $data['qrCode'])->first();
+        $student = Students::where('qr_code', $data['qrCode'])->first();
 
-        presence_log::create([
+        Presence_log::create([
             'student_id' =>  $student->id,
             'status_id' => $data['statusid'],
             'note' =>  isset($data['note']) ? $data['note'] : null,

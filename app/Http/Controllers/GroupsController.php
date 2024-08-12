@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\groups;
+use App\Models\Groups;
 
 
 class GroupsController extends Controller
@@ -13,9 +13,9 @@ class GroupsController extends Controller
         $search = request()->input('search');
 
         if ($search) {
-            $groups = groups::where("code", "LIKE", '%' . $search . '%')->get()->sortBy('code');
+            $groups = Groups::where("code", "LIKE", '%' . $search . '%')->get()->sortBy('code');
         } else {
-            $groups = groups::all()->sortBy('code');
+            $groups = Groups::all()->sortBy('code');
         }
 
 

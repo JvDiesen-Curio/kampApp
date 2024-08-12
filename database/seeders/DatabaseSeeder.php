@@ -6,7 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\groups;
 use App\Models\Mentors;
-use App\Models\presence_log_statuses;
+use App\Models\Presence_log_statuses;
 use App\Models\Strap_themas;
 use Illuminate\Database\Seeder;
 
@@ -18,33 +18,33 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        presence_log_statuses::create(
+        Presence_log_statuses::create(
             [
                 'id' => 1,
                 'name' => 'present',
             ]
         );
-        presence_log_statuses::create(
+        Presence_log_statuses::create(
             [
                 'id' => 2,
                 'name' => 'absent',
             ]
         );
 
-        presence_log_statuses::create(
+        Presence_log_statuses::create(
             [
                 'id' => 3,
                 'name' => 'has gone home',
             ]
         );
-        presence_log_statuses::create(
+        Presence_log_statuses::create(
             [
                 'id' => 4,
                 'name' => 'be right back',
 
             ]
         );
-        presence_log_statuses::create(
+        Presence_log_statuses::create(
             [
                 'id' => 5,
                 'name' => 'rescan',
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         );
 
 
-        mentors::create(
+        Mentors::create(
             [
                 'id' => 1,
                 'name' => 'Geen Mentor',
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Roze',
         ]);
 
-        groups::create(
+        Groups::create(
             [
                 'id' => 1,
                 'code' => 'Geen groep',
