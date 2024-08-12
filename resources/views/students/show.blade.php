@@ -2,7 +2,7 @@
     <section
         class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1 h-[10%] flex items-center justify-between">
         <div>
-            <a href="{{ URL::previous() }}">
+            <a href="{{ route('students.index') }}">
                 <div class="h-10 w-10"><x-icons.goBack /></div>
             </a>
         </div>
