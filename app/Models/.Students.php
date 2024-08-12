@@ -18,7 +18,7 @@ class Students extends Model
 
     public function mentor()
     {
-        return $this->hasOneThrough(Mentors::class, groups::class);
+        return $this->hasOneThrough(Mentors::class, Groups::class);
     }
 
     public function presence_logs()

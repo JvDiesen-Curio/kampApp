@@ -17,6 +17,6 @@ class Mentors extends Model
 
     public function students()
     {
-        return $this->hasManyThrough(Students::class, groups::class, "mentor_id", 'group_id');
+        return $this->hasManyThrough(Students::class, Groups::class, "mentor_id", 'group_id');
     }
 }
