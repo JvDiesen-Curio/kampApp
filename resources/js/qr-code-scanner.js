@@ -93,6 +93,4 @@ async function requestWakeLock() {
     }
 }
 
-if ('wakeLock' in navigator) {
-    requestWakeLock()
-} 
+requestWakeLock()
