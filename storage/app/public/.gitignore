@@ -1,2 +1,7 @@
-*
+
 !.gitignore
+!test_qr.png
+!curio-logos-R90
+!curio-logos-R90/*
+!curio-logos
+!curio-logos/*
