@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\groups;
+use App\Models\Groups;
 use App\Models\Students;
 use Carbon\Carbon;
 use Exception;
@@ -24,7 +24,7 @@ class studentsImport implements ToModel, WithStartRow
         $parts = explode(" ", $row[8]);
 
         if (count($parts) >= 1) {
-            $group = groups::Where('code', $parts[0])->first();
+            $group = Groups::Where('code', $parts[0])->first();
             if ($group) $group_id = $group->id;
         }
 
