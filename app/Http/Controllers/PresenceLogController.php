@@ -25,6 +25,7 @@ class PresenceLogController extends Controller
         Presence_log::create([
             'student_id' => $data['student_id'],
             'status_id' => $data['status_id'],
+            'registrant' => auth()->user()->id,
             'note' => $data['note'],
         ]);
 
@@ -63,6 +64,7 @@ class PresenceLogController extends Controller
         Presence_log::create([
             'student_id' =>  $student->id,
             'status_id' => $data['statusid'],
+            'registrant' => auth()->user()->id,
             'note' =>  isset($data['note']) ? $data['note'] : null,
         ]);
 

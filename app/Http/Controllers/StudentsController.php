@@ -87,7 +87,8 @@ class StudentsController extends Controller
 
         Presence_log::create([
             'student_id' => $student->id,
-            'status_id' => 1
+            'status_id' => 1,
+            'registrant' => auth()->user()->id,
         ]);
 
         if ($data['returnurl']) return redirect($data['returnurl'])->withMessage('success', 'QR code inchecken');;

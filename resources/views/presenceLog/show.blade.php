@@ -7,6 +7,10 @@
                 <div class="h-8 w-8"><x-icons.goBack /></div>
             </a>
         </div>
+        <div class="pl-2 flex  items-center align-middle">
+            <div class="font-bold uppercase text-gray-400 text-sm"> Registrant:</div>
+            <div class="pl-2 font-bold uppercase ">{{ $presence_log->registrant }} </div>
+        </div>
     </section>
     <section
         class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1">

@@ -120,6 +120,7 @@
                             class="border-b-2 border-gray-200 w-full flex justify-evenly py-1 px-2 uppercase text-sm font-bold text-gray-400  ">
 
                             <th class="w-full text-start">Tijdstip</th>
+                            <th class="text-center w-1/3">Registrant</th>
                             <th class="text-center w-1/3">Status</th>
                         </tr>
                     </thead>
@@ -131,6 +132,9 @@
                                 <td class="w-full flex items-center">
                                     <div class="test-sm ">{{ $log->created_at }}</div>
                                 </td>
+                                <td class="text-center w-1/3 uppercase">
+                                    {{ $log->registrant }}
+                                    </a>
                                 <td class="flex justify-center w-1/3">
                                     <a href="{{ route('presenceLog-show', $log) }}">
                                         <div class="h-8 w-8 ">
