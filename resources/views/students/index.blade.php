@@ -1,6 +1,7 @@
 <x-layout>
     <section
-        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1 h-[{{ request('statusid') || request('status') == 'true' ? '20%' : '10%' }}] flex items-center  ">
+        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1  flex items-center  "
+        style=" height: {{ request('statusid') || request('status') == 'true' ? '20%' : '10%' }};">
         @if (request('statusid') || request('status') == 'true')
             <form action="" method="get" id="auto-submit-form"
                 class="w-full h-full flex items-center justify-center flex-wrap">
@@ -95,7 +96,8 @@
 
     </section>
     <section
-        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1  h-[{{ request('statusid') || request('status') == 'true' ? '77%' : '87%' }}] ">
+        class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1"
+        style=" height: {{ request('statusid') || request('status') == 'true' ? '77%' : '87%' }};">
         <table class="flex flex-col h-full w-full ">
             <thead class=" rounded-tl-lg rounded-tr-lg pt-1 flex-initial ">
                 <tr
