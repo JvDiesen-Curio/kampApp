@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\studentsImport;
 use App\Models\groups;
-use App\Models\students;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+
 
 class PdfController extends Controller
 {

@@ -13,7 +13,7 @@ class groups extends Model
 
     public function mentor()
     {
-        return $this->belongsTo(mentors::class);
+        return $this->belongsTo(Mentors::class);
     }
 
     public function students()

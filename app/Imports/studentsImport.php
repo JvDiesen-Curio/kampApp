@@ -3,7 +3,7 @@
 namespace App\Imports;
 
 use App\Models\groups;
-use App\Models\students;
+use App\Models\Students;
 use Carbon\Carbon;
 use Exception;
 use Maatwebsite\Excel\Concerns\ToModel;

@@ -5,7 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GroupsResource\Pages;
 use App\Filament\Resources\GroupsResource\RelationManagers;
 use App\Models\Groups;
-use App\Models\mentors;
+use App\Models\Mentors;
 use App\Models\Strap_themas;
 use Filament\Forms;
 use Filament\Forms\Form;

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\presence_log;
-use App\Models\students;
-use Illuminate\Http\Request;
+use App\Models\Presence_log;
+use App\Models\Students;
+
 
 class PresenceLogController extends Controller
 {

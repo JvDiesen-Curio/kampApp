@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\mentors;
-use App\Models\presence_log;
-use App\Models\students;
+use App\Models\Mentors;
+use App\Models\Presence_log;
+use App\Models\Students;
 use Illuminate\Http\Request;
 
 class StudentsController extends Controller

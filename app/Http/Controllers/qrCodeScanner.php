@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\students;
-use Illuminate\Support\Facades\URL;
+use App\Models\Students;
+
 
 class QrCodeScanner extends Controller
 {

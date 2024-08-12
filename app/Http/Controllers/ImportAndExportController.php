@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Imports\studentsImport;
-use App\Models\groups;
-use Illuminate\Http\Request;
+use App\Models\Groups;
+
 use Maatwebsite\Excel\Facades\Excel;
 
 class ImportAndExportController extends Controller
@@ -13,7 +13,7 @@ class ImportAndExportController extends Controller
     public function importAndExport()
     {
 
-        return view('importAndExport.importAndExport', ['groups' => groups::all()]);
+        return view('importAndExport.importAndExport', ['groups' => Groups::all()]);
     }
 
     public function import()
@@ -38,7 +38,7 @@ class ImportAndExportController extends Controller
         $straps = collect([]);
 
 
-        foreach (groups::all() as $group) {
+        foreach (Groups::all() as $group) {
             if (!request()->input($group->code)) continue;
             for ($i = 0; $i < request()->input($group->code); $i++) {
 

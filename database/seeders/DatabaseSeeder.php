@@ -5,7 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\groups;
-use App\Models\mentors;
+use App\Models\Mentors;
 use App\Models\presence_log_statuses;
 use App\Models\Strap_themas;
 use Illuminate\Database\Seeder;
