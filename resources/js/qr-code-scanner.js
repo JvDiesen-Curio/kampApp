@@ -65,6 +65,34 @@ const qrScanner = new QrScanner(
 );
 
 
+
+
+
+
+
 qrScanner.start();
 
 
+
+
+async function requestWakeLock() {
+    let wakeLock = null;
+    try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        console.log('Screen Wake Lock is actief');
+
+        // Luister naar het 'visibilitychange' event om wake lock opnieuw aan te vragen
+        document.addEventListener('visibilitychange', async () => {
+            if (wakeLock !== null && document.visibilityState === 'visible') {
+                wakeLock = await navigator.wakeLock.request('screen');
+            }
+        });
+
+    } catch (err) {
+        console.error(`${err.name}, ${err.message}`);
+    }
+}
+
+if ('wakeLock' in navigator) {
+    requestWakeLock()
+} 
