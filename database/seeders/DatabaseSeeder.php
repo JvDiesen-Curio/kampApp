@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use App\Models\groups;
+use App\Models\Groups;
 use App\Models\Mentors;
 use App\Models\Presence_log_statuses;
 use App\Models\Strap_themas;
