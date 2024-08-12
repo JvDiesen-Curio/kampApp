@@ -10,7 +10,7 @@
     <x-icons.hasGoHome />
 @endif
 @if ($status == 4)
-    <x-icons.beRightback />
+    <x-icons.beRightBack />
 @endif
 @if ($status == 5)
     <div class="text-orange-500">
