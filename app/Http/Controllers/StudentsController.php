@@ -34,10 +34,8 @@ class StudentsController extends Controller
 
         if ($request->input('statusid') && $request->input('statusid') != 'inchecken') {
             $filtered =  $students->filter(function ($student) use ($request) {
-                $status = $student->getLatestStatus($request->input('recanMinutes'));
-                if (!$status) {
-                    return false;
-                }
+                $status = $student->getLatestStatus($request->input('recanMinutes') ? $request->input('recanMinutes') : null);
+                if (!$status) return false;
                 return $status->status_id == $request->input('statusid');
             });
 

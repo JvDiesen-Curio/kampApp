@@ -30,6 +30,7 @@ class Students extends Model
 
     public function getLatestStatus($recanMinutes = 120)
     {
+        if (!$recanMinutes) $recanMinutes = 120;
         $status = $this->presence_logs()->latest()->first();
         if ($status && $status->created_at < now()->subMinutes($recanMinutes) && $status->status_id != 3) {
             $status->status_id = 5;
