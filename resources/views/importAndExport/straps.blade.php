@@ -10,7 +10,7 @@
 
 <body>
     @for ($pageIndex = 0; $pageIndex < $straps->count() / 10; $pageIndex++)
-        <div class="page w-full flex justify-center">
+        <div class="page w-full flex justify-center" style="margin-left: {{ $fromleft }}mm;">
             @for ($strapsIndex = $pageIndex * 10; $strapsIndex < ($pageIndex + 1) * 10; $strapsIndex++)
                 @if (isset($straps[$strapsIndex]['qrcode_data']))
                     <div class="strap flex justify-center ">
@@ -93,6 +93,8 @@
     .printable-area-wrapper {
         width: 17mm;
         margin-top: 25mm;
+        margin-left: 1mm;
+        margin-right: 1mm;
 
     }
 
@@ -121,5 +123,6 @@
     .page {
         page-break-after: always;
         height: 255mm;
+
     }
 </style>

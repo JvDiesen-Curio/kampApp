@@ -32,6 +32,7 @@ class ImportAndExportController extends Controller
     {
         $data = request()->validate([
             "emergency_number" => 'required',
+            "fromleft" => 'required',
         ]);
 
 
@@ -62,7 +63,7 @@ class ImportAndExportController extends Controller
             }
         }
 
-        return view('importAndExport.straps', ['straps' => $straps]);
+        return view('importAndExport.straps', ['straps' => $straps, 'fromleft' => $data['fromleft']]);
     }
 
     private function  getCurioLogo($thame_id): string

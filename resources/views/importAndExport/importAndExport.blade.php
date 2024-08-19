@@ -20,7 +20,6 @@
         <h1 class=" font-extrabold uppercase text-gray-500 w-full text-center">Generate straps</h1>
 
         <form action="{{ route('straps') }}" method="GET">
-            @csrf
             @foreach ($groups as $group)
                 <div class="w-full flex my-1 ">
                     <label class="w-[90%]" for="{{ $group->code }}">{{ $group->code }}:</label>
@@ -32,8 +31,13 @@
             @endforeach
             <div class="w-full flex ">
                 <label class="w-[50%]" for="emergency_number">Emergency number:</label>
-                <input class="w-[50%] text-center " id="emergency_number}" type="tel" name="emergency_number"
+                <input class="w-[50%] text-center " id="emergency_number" type="tel" name="emergency_number"
                     value="+31 88 209 7527">
+            </div>
+            <div class="w-full flex  bg-red-400">
+                <label class="w-[90%]" for="fromleft">Zet het gecentreerd ten opzichte van de linkerzijde, uitgedrukt in
+                    millimeters:</label>
+                <input class="w-[10%] text-center " id="fromleft" type="nummer" name="fromleft" value="-6">
             </div>
             <button type="submit"
                 class="bg-gray-800 text-white p-2 rounded-lg w-full uppercase  mt-2 font-extrabold">Generate</button>
