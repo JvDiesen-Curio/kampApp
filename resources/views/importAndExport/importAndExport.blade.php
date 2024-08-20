@@ -37,7 +37,7 @@
             <div class="w-full flex  bg-red-400">
                 <label class="w-[90%]" for="fromleft">Zet het gecentreerd ten opzichte van de linkerzijde, uitgedrukt in
                     millimeters:</label>
-                <input class="w-[10%] text-center " id="fromleft" type="nummer" name="fromleft" value="-6">
+                <input class="w-[10%] text-center " id="fromleft" type="nummer" name="fromleft" value="0">
             </div>
             <button type="submit"
                 class="bg-gray-800 text-white p-2 rounded-lg w-full uppercase  mt-2 font-extrabold">Generate</button>
