@@ -44,7 +44,8 @@ class GroupsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('code')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('mentor.name')
                     ->label('Mentor')
                     ->sortable(),
