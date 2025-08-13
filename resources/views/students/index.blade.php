@@ -1,3 +1,4 @@
+@props(['groups' => [], 'viewWithMedications' => $viewOnlyWihtMedications ?? false])
 <x-layout>
     <section
         class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1  flex items-center  "
@@ -86,11 +87,30 @@
             <form action="" method="get" class="w-full h-full flex items-center">
                 <input type="text" name="search" id="search" placeholder="Search" value="{{ request('search') }}"
                     class="w-full h-full p-2">
+                @if (count($groups) > 0)
+                    <select name="groupid" id="groupid" class="w-1/5 h-full p-2 mr-2" onchange="this.form.submit()">
+                        <option value="">All groepen</option>
+                        @foreach ($groups as $group)
+                            <option value="{{ $group->id }}"
+                                {{ request('groupid') == $group->id ? 'selected' : '' }}>
+                                {{ $group->code }}</option>
+                        @endforeach
+                    </select>
+
+                @endif
+
                 <a href="{{ route('qrCodeScanner') . '?onlyScanner=true&calbackurl=' . URL::full() }}">
                     <div class="text-gray-800 w-10 h-10 ">
                         <x-icons.qrcode />
                     </div>
                 </a>
+
+                @if (request('viewWithMedications'))
+                    <input type="hidden" name="viewWithMedications" id="viewWithMedications" value="true">
+                @endif
+                @if (request('viewOnlyWihtMedications'))
+                    <input type="hidden" name="viewOnlyWihtMedications" id="viewOnlyWihtMedications" value="true">
+                @endif
             </form>
         @endif
 
@@ -104,7 +124,13 @@
                     class="border-b-2 border-gray-200 w-full flex justify-evenly py-1 px-2 uppercase text-sm font-bold text-gray-400  ">
                     <th class="w-full text-start">Naam</th>
                     {{-- <th class="w-full text-start">Groep</th> --}}
-                    <th class="w-full text-center">Status</th>
+
+                    @if (request('viewWithMedications'))
+                        <th class="w-full text-start">Medicijnen</th>
+                    @endif
+                    @if (!request('viewWithMedications'))
+                        <th class="w-full text-center">Status</th>
+                    @endif
                 </tr>
             </thead>
             <tbody class="overflow-y-scroll flex-1">
@@ -114,28 +140,34 @@
                         <td class="w-full truncate"> <a
                                 href="{{ route('students.show', $student) }}">{{ $student->fullname() }}</a></td>
                         {{-- <td class="w-full truncate">{{ $student->group->code }}</td> --}}
-                        <td class="w-full flex items-center justify-center">
-                            <div class="h-8 w-8  ">
-                                @if ($student->getLatestStatus())
-                                    <a href="{{ route('presenceLog-create', $student) }}">
-                                        <x-statusIcons :status="$student->getLatestStatus()->status_id" />
-                                    </a>
-                                @else
-                                    @if (!$student->qr_code)
-                                        <a
-                                            href="{{ route('qrCodeScannerInchecken', $student) . '?onlyScanner=true&returnurl=' . URL::full() }}">
-                                            <div class="text-gray-500">
-                                                <x-icons.qrcode />
-                                            </div>
+                        @if (request('viewWithMedications'))
+                            <td class="w-full truncate">{{ $student->medicines }}</td>
+                        @endif
+                        @if (!request('viewWithMedications'))
+                            <td class="w-full flex items-center justify-center">
+                                <div class="h-8 w-8  ">
+                                    @if ($student->getLatestStatus())
+                                        <a href="{{ route('presenceLog-create', $student) }}">
+                                            <x-statusIcons :status="$student->getLatestStatus()->status_id" />
                                         </a>
                                     @else
-                                        <a href="{{ route('presenceLog-create', $student) }}">
-                                            <x-statusIcons :status="null" />
-                                        </a>
+                                        @if (!$student->qr_code)
+                                            <a
+                                                href="{{ route('qrCodeScannerInchecken', $student) . '?onlyScanner=true&returnurl=' . URL::full() }}">
+                                                <div class="text-gray-500">
+                                                    <x-icons.qrcode />
+                                                </div>
+                                            </a>
+                                        @else
+                                            <a href="{{ route('presenceLog-create', $student) }}">
+                                                <x-statusIcons :status="null" />
+                                            </a>
+                                        @endif
                                     @endif
-                                @endif
-                            </div>
-                        </td>
+
+                                </div>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
             </tbody>

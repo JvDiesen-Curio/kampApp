@@ -32,6 +32,7 @@ Route::middleware(['auth', 'isTeacher', 'web'])->group(function () {
     Route::resource('groups', GroupsController::class);
 
     Route::get('mystudents', [StudentsController::class, 'myStudents'])->name('mystudents');
+    Route::get('medications', [StudentsController::class, 'index'])->name('medications');
 
     Route::prefix('presencelog')->group(function () {
         Route::get('student/{student}', [PresenceLogController::class, 'create'])->name('presenceLog-create');

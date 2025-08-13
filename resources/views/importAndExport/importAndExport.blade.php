@@ -32,7 +32,7 @@
             <div class="w-full flex ">
                 <label class="w-[50%]" for="emergency_number">Emergency number:</label>
                 <input class="w-[50%] text-center " id="emergency_number" type="tel" name="emergency_number"
-                    value="+31 88 209 7527">
+                    placeholder="+31 88 209 7527" value="">
             </div>
             <div class="w-full flex  bg-red-400">
                 <label class="w-[90%]" for="fromleft">Zet het gecentreerd ten opzichte van de linkerzijde, uitgedrukt in

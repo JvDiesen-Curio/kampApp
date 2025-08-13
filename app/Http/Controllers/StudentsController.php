@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Groups;
 use App\Models\Mentors;
 use App\Models\Presence_log;
 use App\Models\Students;
@@ -29,6 +30,10 @@ class StudentsController extends Controller
             if ($request->input('statusid') && $request->input('statusid') == 'inchecken') {
                 $query->where('qr_code', '=',  null);
             }
+
+            if ($request->input('viewOnlyWihtMedications') == 'true') {
+                $query->where('medicines', '!=',  null);
+            }
         })->get()->sortBy('last_name');
 
 
@@ -42,8 +47,10 @@ class StudentsController extends Controller
             $students =  $filtered->all();
         }
 
+        $groups = Groups::all();
 
-        return view('students.index', ["students" => $students]);
+
+        return view('students.index', ["students" => $students, "groups" => $groups]);
     }
 
     public function myStudents()
