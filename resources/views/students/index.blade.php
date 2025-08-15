@@ -84,11 +84,13 @@
 
             </form>
         @else
-            <form action="" method="get" class="w-full h-full flex items-center">
+            <form action="" method="get" class="w-full h-full flex items-center flex-row">
                 <input type="text" name="search" id="search" placeholder="Search" value="{{ request('search') }}"
                     class="w-full h-full p-2">
+
+
                 @if (count($groups) > 0)
-                    <select name="groupid" id="groupid" class="w-1/5 h-full p-2 mr-2" onchange="this.form.submit()">
+                    <select name="groupid" id="groupid" class="w-[90%] h-full p-2 mr-2" onchange="this.form.submit()">
                         <option value="">All groepen</option>
                         @foreach ($groups as $group)
                             <option value="{{ $group->id }}"
@@ -122,14 +124,14 @@
             <thead class=" rounded-tl-lg rounded-tr-lg pt-1 flex-initial ">
                 <tr
                     class="border-b-2 border-gray-200 w-full flex justify-evenly py-1 px-2 uppercase text-sm font-bold text-gray-400  ">
-                    <th class="w-full text-start">Naam</th>
-                    {{-- <th class="w-full text-start">Groep</th> --}}
+                    <th class="w-full text-left">Naam</th>
+
 
                     @if (request('viewWithMedications'))
-                        <th class="w-full text-start">Medicijnen</th>
+                        <th class="w-full text-left">Medicijnen</th>
                     @endif
                     @if (!request('viewWithMedications'))
-                        <th class="w-full text-center">Status</th>
+                        <th class="w-full text-right">Status</th>
                     @endif
                 </tr>
             </thead>
@@ -137,14 +139,15 @@
                 @foreach ($students as $student)
                     <tr
                         class="flex justify-evenly w-full border-b-2 border-gray-200 pl-2 py-2 hover:bg-gray-200 duration-300 ease-in-out">
-                        <td class="w-full truncate"> <a
-                                href="{{ route('students.show', $student) }}">{{ $student->fullname() }}</a></td>
+                        <td class="w-full truncate text-left"> <a
+                                href="{{ route('students.show', $student) }}">{{ $student->fullname() }}</a>
+                        </td>
                         {{-- <td class="w-full truncate">{{ $student->group->code }}</td> --}}
                         @if (request('viewWithMedications'))
-                            <td class="w-full truncate">{{ $student->medicines }}</td>
+                            <td class=" text-left text-sm text-wrap w-1/2">{{ $student->medicines }}</td>
                         @endif
                         @if (!request('viewWithMedications'))
-                            <td class="w-full flex items-center justify-center">
+                            <td class="w-full flex items-center justify-end pr-3">
                                 <div class="h-8 w-8  ">
                                     @if ($student->getLatestStatus())
                                         <a href="{{ route('presenceLog-create', $student) }}">
