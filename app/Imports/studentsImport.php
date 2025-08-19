@@ -16,12 +16,18 @@ class studentsImport implements ToModel, WithStartRow
      *
      * @return \Illuminate\Database\Eloquent\Model|null
      */
+
+    // .csv import klommen volgens de kolomme: Klas ,Voornaam,	Achternaam,	Geboortedatum, Telefoonnummer, aanwezighied, Voor- en achternaam noodcontactpersoon, Telefoonnummer, noodcontactpersoon	Relatie met noodcontactpersoon,	Dieetwensen,medicijnen,	allergieën
+
+
+
+
     public function model(array $row)
     {
         if ($row[0] == null) return null;
         $group_id = 1;
 
-        $parts = explode(" ", $row[8]);
+        $parts = explode(" ", $row[0]); // groep code
 
         if (count($parts) >= 1) {
             $group = Groups::Where('code', $parts[0])->first();
@@ -29,32 +35,29 @@ class studentsImport implements ToModel, WithStartRow
         }
 
         try {
-            $birthdate = Carbon::createFromFormat('d-m-Y', $row[9])->format('Y-m-d');
+            $birthdate = Carbon::createFromFormat('d-m-Y', $row[3])->format('Y-m-d'); // Geboortedatum
         } catch (Exception $e) {
             dump($e);
-            dd($row[9]);
+            dump($row[3]);
+            dd($row);
         }
 
 
 
 
         return new students([
-            'first_name' => $row[6],
-            'last_name' => $row[7],
-            'birthdate' =>  $birthdate,
-            'tel' => $row[10],
-            'group_id' =>  $group_id,
-            'ec_name' => $row[16],
-            'ec_tel' => $row[17],
-            'ec_relation' => $row[18],
-            'wednesday' => $row[11],
-            'wednesday_evening' => $row[13],
-            'stay_overnight' => $row[14],
-            'thursday_morning' => $row[15],
-            'dietary_requirements' => $row[19],
-            'note' => $row[20],
-            'medicines' => $row[21],
-            'allergies' => $row[22],
+            'first_name' => $row[1], // voornaam
+            'last_name' => $row[2], // achternaam
+            'birthdate' =>  $birthdate, // geboortedatum
+            'tel' => $row[4], // telefoonnummer
+            'group_id' =>  $group_id, // groep
+            'ec_name' => $row[6], // naam van de verantwoordelijke
+            'ec_tel' => $row[7], // telefoonnummer
+            'ec_relation' => $row[8],   // relatie
+            'dietary_requirements' => $row[9],  // dieet
+            'note' => $row[10],     // opmerking
+            'medicines' => $row[11], // medicijnen
+            'allergies' => $row[12],  // allergie
         ]);
     }
     public function startRow(): int
