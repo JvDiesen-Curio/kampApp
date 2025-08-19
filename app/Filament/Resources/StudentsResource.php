@@ -62,15 +62,15 @@ class StudentsResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('wednesday')
                     ->label('Wednesday'),
-                Forms\Components\TextInput::make('wednesday_evening')
-                    ->label('Wednesday evening')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('thursday_morning')
-                    ->label('Thursday morning')
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('stay_overnight')
-                    ->label('Stay overnight')
-                    ->maxLength(255),
+                // Forms\Components\TextInput::make('wednesday_evening')
+                //     ->label('Wednesday evening')
+                //     ->maxLength(255),
+                // Forms\Components\TextInput::make('thursday_morning')
+                //     ->label('Thursday morning')
+                //     ->maxLength(255),
+                // Forms\Components\TextInput::make('stay_overnight')
+                //     ->label('Stay overnight')
+                //     ->maxLength(255),
                 Forms\Components\TextInput::make('dietary_requirements')
                     ->label('Dietary requirements')
                     ->maxLength(255),

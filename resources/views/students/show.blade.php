@@ -151,7 +151,7 @@
                 </table>
             </div>
         </section>
-        <section
+        {{-- <section
             class="relative bg-clip-border rounded-xl bg-white text-gray-700 border border-blue-gray-100 shadow-sm p-2 mx-2 my-2 flex-1">
             <div class="pl-2 font-bold uppercase text-gray-500">voorkeur aanwezigheid</div>
             <hr />
@@ -175,6 +175,6 @@
                 </div>
 
             </div>
-        </section>
+        </section> --}}
     </div>
 </x-layout>
