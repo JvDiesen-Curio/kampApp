@@ -92,7 +92,7 @@
 
     .printable-area-wrapper {
         width: 17mm;
-        margin-top: 25mm;
+        margin-top: 5mm;
         margin-left: 1mm;
         margin-right: 1mm;
 
@@ -101,7 +101,7 @@
     .printable-area {
         width: 15mm;
         height: 207mm;
-        margin-bottom: 5mm;
+        margin-bottom: -15mm;
     }
 
     .logo {
