@@ -28,7 +28,6 @@ class MentorsResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('mobiele')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('code')
                     ->required()
