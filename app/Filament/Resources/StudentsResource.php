@@ -2,13 +2,17 @@
 
 namespace App\Filament\Resources;
 
+use BackedEnum;
 use App\Filament\Resources\StudentsResource\Pages;
 use App\Filament\Resources\StudentsResource\RelationManagers;
 use App\Models\Groups;
 use App\Models\Students;
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
 use Filament\Forms;
-use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -18,11 +22,11 @@ class StudentsResource extends Resource
 {
     protected static ?string $model = Students::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static BackedEnum|string|null $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Forms\Components\TextInput::make('first_name')
                     ->label('Voornaam')
@@ -46,7 +50,6 @@ class StudentsResource extends Resource
                     ->label('Groep')
                     ->options(groups::all()->pluck('code', 'id'))
                     ->required(),
-
                 Forms\Components\TextInput::make('ec_name')
                     ->label('Nootcontactpersoon naam')
                     ->required()
@@ -60,17 +63,6 @@ class StudentsResource extends Resource
                     ->label('Nootcontactpersoon relatie')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('wednesday')
-                    ->label('Wednesday'),
-                // Forms\Components\TextInput::make('wednesday_evening')
-                //     ->label('Wednesday evening')
-                //     ->maxLength(255),
-                // Forms\Components\TextInput::make('thursday_morning')
-                //     ->label('Thursday morning')
-                //     ->maxLength(255),
-                // Forms\Components\TextInput::make('stay_overnight')
-                //     ->label('Stay overnight')
-                //     ->maxLength(255),
                 Forms\Components\TextInput::make('dietary_requirements')
                     ->label('Dietary requirements')
                     ->maxLength(255),
@@ -111,12 +103,12 @@ class StudentsResource extends Resource
             ->filters([
                 //
             ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
+            ->recordActions([
+                EditAction::make(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
                 ]),
             ]);
     }

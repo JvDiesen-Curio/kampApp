@@ -23,10 +23,6 @@ return new class extends Migration
             $table->string('ec_name');
             $table->string('ec_tel');
             $table->string('ec_relation');
-            $table->string('wednesday')->nullable();
-            $table->string('wednesday_evening')->nullable();
-            $table->string('stay_overnight')->nullable();
-            $table->string('thursday_morning')->nullable();
             $table->text('dietary_requirements')->nullable();
             $table->text('note')->nullable();
             $table->text('medicines')->nullable();
