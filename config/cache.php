@@ -97,6 +97,17 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Serializable Cache Classes
+    |--------------------------------------------------------------------------
+    |
+    | Laravel 13 hardens cache unserialization by only allowing explicitly
+    | listed cached object classes to be restored.
+    */
+
+    'serializable_classes' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Cache Key Prefix
     |--------------------------------------------------------------------------
     |
