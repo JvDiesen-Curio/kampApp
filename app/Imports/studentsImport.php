@@ -6,6 +6,7 @@ use App\Models\Groups;
 use App\Models\Students;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Database\Eloquent\Model;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
@@ -22,7 +23,7 @@ class studentsImport implements ToModel, WithStartRow
 
 
 
-    public function model(array $row)
+    public function model(array $row): Model|array|null
     {
         if ($row[0] == null) return null;
         $group_id = 1;
